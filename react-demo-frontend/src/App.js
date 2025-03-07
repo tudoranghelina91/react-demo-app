@@ -17,16 +17,23 @@ function App() {
 
       axios.get('http://localhost:3000/cart')
         .then(response => {
-          console.log(response.data);
           setCartItems(response.data);
         })
         .catch(error => console.error('Error fetching cart items:', error));
-
   }, []);
 
+  const onAddedToCartHandler = (product) => {
+      setCartItems([...cartItems, product]);
+  }
+
+  const onItemRemovedHandler = (productId) => {
+    const updatedCartItems = cartItems.filter(item => item.id !== productId);
+    setCartItems(updatedCartItems);
+  }
+
   return (<>
-    <ListItems products={products} />
-    <CartItems items={cartItems} />
+    <ListItems products={products} onAddedToCart={onAddedToCartHandler} />
+    <CartItems items={cartItems} onItemRemoved={onItemRemovedHandler}/>
   </>);
 }
 

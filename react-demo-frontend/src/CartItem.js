@@ -1,12 +1,12 @@
 import React from 'react';
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item, onItemRemoved }) => {
     return (
         <div>
-            <img src={item.image} alt={item.name} />
             <div>
                 <h4>{item.name}</h4>
                 <p>${item.price}</p>
+                <button onClick={() => onItemRemoved(item.id)}>X</button>
             </div>
         </div>
     );

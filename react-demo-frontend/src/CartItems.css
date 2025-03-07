@@ -1,0 +1,44 @@
+@keyframes fireworks {
+    0% {
+        opacity: 1;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+.firework {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    animation: fireworks 1s ease-out forwards;
+}
+
+.firework:nth-child(2) {
+    background-color: yellow;
+    animation-delay: 0.1s;
+}
+
+.firework:nth-child(3) {
+    background-color: blue;
+    animation-delay: 0.2s;
+}
+
+.firework:nth-child(4) {
+    background-color: green;
+    animation-delay: 0.3s;
+}
+
+.firework:nth-child(5) {
+    background-color: purple;
+    animation-delay: 0.4s;
+}
+
+.button-container {
+    position: relative;
+    display: inline-block;
+}
